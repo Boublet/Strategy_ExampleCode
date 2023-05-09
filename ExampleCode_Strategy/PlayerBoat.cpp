@@ -6,14 +6,19 @@ PlayerBoat::PlayerBoat() {
 	this->name = "";
 	this->level = 0;
 	this->bonus = 0;
-	this->stra = nullptr;
+	this->stra = new NullNet;
 }
 
 PlayerBoat::PlayerBoat(string name, int level, double bonus, Strategy* stra) {
 	this->name = name;
 	this->level = level;
 	this->bonus = bonus;
-	this->stra = stra;
+	if (stra != nullptr) {
+		this->stra = stra;
+	}
+	else {
+		this->stra = new NullNet;
+	}
 }
 
 PlayerBoat::PlayerBoat(const PlayerBoat& pb) {
@@ -32,3 +37,12 @@ double PlayerBoat::getCrab() {
 	return this->stra->getCrab(this->level, this->bonus);
 }
 
+void PlayerBoat::setLevel(int level) {
+	this->level = level;
+}
+void PlayerBoat::setBonus(double bonus) {
+	this->bonus = bonus;
+}
+void PlayerBoat::setName(string name) {
+	this->name = name;
+}

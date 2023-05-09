@@ -17,6 +17,9 @@ public:
 	double getFish();
 	double getCrab();
 	void setStrategy(Strategy* stra);
+	void setLevel(int level);
+	void setBonus(double bonus);
+	void setName(string name);
 
 };
 
